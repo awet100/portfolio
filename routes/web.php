@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +32,20 @@ Route::get('/writing', function () {
 
 Route::get('/contact', function () {
     return view('contact');
+});
+
+Route::post('/contact', function () {
+
+    Mail::send('contact', [
+        'name' => request('name'),
+        'email' => request('email'),
+        'message' => request('message')
+    ],
+        function ($message) {
+            $message->from('youremail@your_domain');
+            $message->to('youremail@your_domain', 'Your Name')
+                ->subject('Your Website Contact Form');
+        });
+
+    return redirect('/');
 });
