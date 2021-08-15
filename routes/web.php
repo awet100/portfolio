@@ -36,14 +36,15 @@ Route::get('/contact', function () {
 
 Route::post('/contact', function () {
 
-    Mail::send('contact', [
-        'name' => request('name'),
+    Mail::send('email-template', [
+        'sender' => request('name'),
         'email' => request('email'),
-        'message' => request('message')
+        'msg' => request('message'),
+        'receiver' => env('MAIL_TO_NAME')
     ],
         function ($message) {
-            $message->from('youremail@your_domain');
-            $message->to('youremail@your_domain', 'Your Name')
+            $message->from(request('email'));
+            $message->to(env('MAIL_TO_ADDRESS'), env('MAIL_TO_NAME'))
                 ->subject('Your Website Contact Form');
         });
 
