@@ -1,4 +1,4 @@
-<x-layout title="home"/>
+<x-layout title="Home"/>
 
 <x-main-section>
     <h3 class="pb-3">Hi, I'm Nad.</h3>

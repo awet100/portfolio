@@ -1,4 +1,4 @@
-<x-layout title="work"/>
+<x-layout title="Work"/>
 
 <x-main-section>
     <x-heading-2>

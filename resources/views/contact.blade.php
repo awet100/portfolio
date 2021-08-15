@@ -1,4 +1,4 @@
-<x-layout title="contact"/>
+<x-layout title="Contact"/>
 
 <x-main-section>
     <x-heading-2>
